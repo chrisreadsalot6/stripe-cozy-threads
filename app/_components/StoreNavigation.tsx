@@ -1,7 +1,7 @@
 'use client';
 
 import {Fragment, useState, useRef, useEffect} from 'react';
-import {usePathname} from 'next/navigation';
+import {usePathname, useRouter} from 'next/navigation';
 import {Dialog, Popover, Tab, Transition} from '@headlessui/react';
 import {useMediaQuery} from 'react-responsive';
 import Link from 'next/link';
@@ -11,8 +11,10 @@ import {useShoppingCart} from '../_context/ShoppingCartContext';
 import {navigation} from '../_data/navigation';
 
 export default function StoreNavigation() {
+    const router = useRouter();
+
     // Magic strings
-    const CHECKOUT_PATH = '/checkout';
+    const PRODUCT_PATH = '/';
     const MOBILE_BREAKPOINT = 767;
 
     // State management
@@ -33,7 +35,7 @@ export default function StoreNavigation() {
         event.preventDefault();
         setMobileMenuOpen(false);
         setOpenPopover(null);
-        window.location.href = href;
+        router.push(href);
     };
 
     const handleCategoryToggle = (categoryName: string) => (event: React.MouseEvent) => {
@@ -88,8 +90,8 @@ export default function StoreNavigation() {
     };
 
     // Render checkout page navigation
-    const isCheckoutPage = pathname === CHECKOUT_PATH;
-    if (isCheckoutPage) {
+    const isProductPage = pathname !== PRODUCT_PATH;
+    if (isProductPage) {
         return <CheckOutPageNav />;
     }
 
@@ -326,6 +328,12 @@ export default function StoreNavigation() {
 
     // Clickable shopping cart icon
     const ShoppingCartIcon = () => {
+        const [quantity, setQuantity] = useState<number | null>(null);
+
+        useEffect(() => {
+            setQuantity(cartItems.reduce((total, item) => total + item.quantity, 0));
+        }, []);
+
         return (
             <div className='ml-auto flex items-center'>
                 <div className='ml-4 flow-root lg:ml-6'>
@@ -341,7 +349,7 @@ export default function StoreNavigation() {
                             aria-hidden='true'
                         />
                         <span className='ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800'>
-                            {cartQuantity}
+                            {quantity}
                         </span>
                         <span className='sr-only'>items in cart, view bag</span>
                     </Link>
@@ -349,8 +357,6 @@ export default function StoreNavigation() {
             </div>
         );
     };
-
-    const cartQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
 
     return (
         <div

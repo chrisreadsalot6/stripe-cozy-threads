@@ -28,10 +28,11 @@ function ReturnContent() {
     const [lineItems, setLineItems] = useState<{data: LineItem[]}>({
         data: [],
     });
+    const [cartCleared, setCartCleared] = useState(false);
     const {cartItems, removeFromCart} = useShoppingCart();
     const searchParams = useSearchParams();
 
-    // // State management for order details and cart interaction
+    // State management for order details and cart interaction
     useEffect(() => {
         const session_id = searchParams.get('session_id');
         if (!session_id) return;
@@ -50,6 +51,16 @@ function ReturnContent() {
             });
     }, [searchParams]);
 
+    // Clear cart after successful purchase
+    useEffect(() => {
+        if (status === 'complete' && !cartCleared) {
+            cartItems.forEach(item => {
+                removeFromCart(item.id, item.color, item.size);
+            });
+            setCartCleared(true);
+        }
+    }, [status, cartItems, removeFromCart, cartCleared]);
+
     // Redirect to home if the session failed
     if (status === 'open') {
         return redirect('/');
@@ -57,15 +68,10 @@ function ReturnContent() {
 
     // Fetch and set order details from Stripe session
     if (status === 'complete') {
-        // Clear cart after successful purchase
-        cartItems.forEach(item => {
-            removeFromCart(item.id, item.color, item.size);
-        });
-
         // Render order confirmation and summary
         return (
-            <div className='min-h-screen flex-grow pt-16 sm:pt-24'>
-                <div className='max-w-3xl mx-auto py-16 px-4 sm:px-6 lg:px-8'>
+            <div className='flex-grow'>
+                <div className='max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8'>
                     <div className='bg-white shadow-xl rounded-lg overflow-hidden sm:rounded-lg border border-gray-200 p-8'>
                         <div className='px-4 py-5 sm:p-6'>
                             {/* Thank you message */}

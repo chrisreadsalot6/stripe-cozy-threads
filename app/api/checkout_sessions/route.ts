@@ -10,6 +10,9 @@ export async function POST(request: NextRequest) {
         // Get cart items
         const {cartItems} = await request.json();
 
+        // Determine base URL
+        const baseUrl = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
+
         // Create Stripe-compatible line items from cart items
         const lineItems = cartItems.map((item: any) => {
             // Convert price to cents
@@ -17,7 +20,7 @@ export async function POST(request: NextRequest) {
             // Add size and color to item description
             const description = `${item.description} - ${item.size} in ${item.color}`;
             // Convert relative image path to absolute URL
-            const imageUrl = new URL(item.imageSrc, `${request.nextUrl.origin}`).toString();
+            const imageUrl = `${baseUrl}${item.imageSrc}`;
 
             return {
                 adjustable_quantity: {

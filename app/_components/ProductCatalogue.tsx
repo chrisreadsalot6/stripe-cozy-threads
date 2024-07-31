@@ -12,15 +12,17 @@ function classNames(...classes: (string | boolean | undefined)[]): string {
 }
 
 export default function ProductCatalogue() {
-    // State for color and size selections
+    // State for color and size selections, and mobile size selection
     const [selectedColors, setSelectedColors] = useState<{[key: number]: string}>({});
-    const [showSizes, setShowSizes] = useState<{[key: number]: boolean}>({});
+    const [activeSizeSelection, setActiveSizeSelection] = useState<number | null>(null);
 
     // Shopping cart context hooks
     const {addToCart, setOpen} = useShoppingCart();
 
-    const handleQuickAdd = (productId: number) => {
-        setShowSizes(prev => ({...prev, [productId]: true}));
+    const handleQuickAdd = (productId: number, event: React.MouseEvent) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setActiveSizeSelection(productId);
     };
 
     const handleSizeSelect = (size: string, product: any) => {
@@ -35,7 +37,7 @@ export default function ProductCatalogue() {
             imageAlt: product.imageAlt,
             color: selectedColors[product.id] || product.colors[0].name,
         });
-        setShowSizes(prev => ({...prev, [product.id]: false}));
+        setActiveSizeSelection(null);
         setOpen(true);
     };
 
@@ -64,7 +66,11 @@ export default function ProductCatalogue() {
                                     : 'bg-indigo-600 text-white'
                             )
                         }
-                        onClick={() => handleSizeSelect(size, product)}>
+                        onClick={e => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            handleSizeSelect(size, product);
+                        }}>
                         <span className='text-md font-medium uppercase'>{size}</span>
                     </RadioGroup.Option>
                 ))}
@@ -105,18 +111,33 @@ export default function ProductCatalogue() {
     // 2. On quick add click, show size selection.
     // 3. On size selection click, add product to cart. Cart will also show.
     const quickAddOverlay = (product: Product) => {
+        // To keep size selection open on mobile
+        const isActive = activeSizeSelection === product.id;
         return (
-            <div className='absolute inset-0 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-                {!showSizes[product.id] ? (
+            <div
+                className={`absolute inset-0 flex items-center justify-center z-10 transition-opacity duration-300 ${
+                    isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                }`}>
+                {!isActive ? (
                     // Quick add button
                     <button
                         className='bg-white text-gray-900 hover:bg-indigo-500 hover:text-white hover:shadow-lg px-4 py-2 rounded-md font-medium shadow-md transition-colors duration-200 cursor-pointer'
-                        onClick={() => handleQuickAdd(product.id)}>
+                        onClick={e => handleQuickAdd(product.id, e)}>
                         Quick Add
                     </button>
                 ) : (
                     // Size selection
-                    <div className='bg-white p-4 rounded-md shadow-lg'>{renderSizeOptions(product)}</div>
+                    <div className='bg-white p-4 rounded-md shadow-lg w-full'>
+                        <div className='flex justify-between items-center mb-2'>
+                            <span className='font-medium'>Select Size</span>
+                            <button
+                                onClick={() => setActiveSizeSelection(null)}
+                                className='text-gray-500 hover:text-gray-700'>
+                                ✕
+                            </button>
+                        </div>
+                        {renderSizeOptions(product)}
+                    </div>
                 )}
             </div>
         );
