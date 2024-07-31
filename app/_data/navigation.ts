@@ -1,3 +1,8 @@
+// Defines hierarchical structure of the store navigation bar
+// Top-level categories: Apparel and Accessories
+// Each top level category has a featured section and a sections section
+// Each section has a list of items
+
 export const navigation = {
     categories: [
         {
@@ -8,14 +13,14 @@ export const navigation = {
                 {
                     name: 'New Arrivals',
                     href: '#apparel',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-                    imageAlt: 'Person wearing a comfortable organic cotton hoodie',
+                    imageSrc: '/products/organic-cotton-sweatpants.jpeg',
+                    imageAlt: 'Person wearing cozy organic cotton sweatpants',
                 },
                 {
                     name: 'Eco-Friendly Basics',
                     href: '#apparel',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-                    imageAlt: 'Model wearing a soft organic cotton t-shirt',
+                    imageSrc: '/products/recycled-down-vest.jpeg',
+                    imageAlt: 'Person wearing a puffy recycled down vest',
                 },
             ],
             sections: [
@@ -44,13 +49,13 @@ export const navigation = {
                 {
                     name: 'Eco-Friendly Essentials',
                     href: '#accessories',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-                    imageAlt: 'Model wearing a cozy recycled wool scarf',
+                    imageSrc: '/products/organic-cotton-beanie.jpeg',
+                    imageAlt: 'Person wearing a cozy organic cotton beanie',
                 },
                 {
                     name: 'Sustainable Carry',
                     href: '#accessories',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+                    imageSrc: '/products/organic-cotton-tote-bag.jpeg',
                     imageAlt: 'Organic cotton tote bag with Cozy Threads logo',
                 },
             ],

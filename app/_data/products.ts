@@ -21,7 +21,7 @@ export const products: Product[] = [
         name: 'Organic Cotton Hoodie',
         description: 'Ultra-soft, ethically-sourced organic cotton hoodie',
         price: '$75',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/organic-cotton-hoodie.jpeg',
         imageAlt: 'Person wearing a comfortable organic cotton hoodie',
         colors: [
             {
@@ -48,7 +48,7 @@ export const products: Product[] = [
         name: 'Bamboo Lounge Pants',
         description: 'Breathable and eco-friendly bamboo lounge pants',
         price: '$65',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/bamboo-lounge-pants.jpeg',
         imageAlt: 'Model wearing comfortable bamboo lounge pants',
         colors: [
             {
@@ -75,7 +75,7 @@ export const products: Product[] = [
         name: 'Merino Wool Sweater',
         description: 'Luxuriously soft, ethically-sourced merino wool sweater',
         price: '$120',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/merino-wool-sweater.jpeg',
         imageAlt: 'Person wearing a cozy merino wool sweater',
         colors: [
             {
@@ -102,7 +102,7 @@ export const products: Product[] = [
         name: 'Organic Linen Shirt',
         description: 'Breathable and durable organic linen button-up shirt',
         price: '$85',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/organic-linen-shirt.jpeg',
         imageAlt: 'Model wearing a crisp organic linen shirt',
         colors: [
             {
@@ -129,7 +129,7 @@ export const products: Product[] = [
         name: 'Recycled Fleece Jacket',
         description: 'Warm and eco-friendly jacket made from recycled materials',
         price: '$95',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/recycled-fleece-jacket.jpeg',
         imageAlt: 'Person wearing a cozy recycled fleece jacket',
         colors: [
             {
@@ -156,7 +156,7 @@ export const products: Product[] = [
         name: 'Organic Cotton T-Shirt',
         description: 'Classic, comfortable organic cotton tee',
         price: '$35',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/organic-cotton-t-shirt.jpeg',
         imageAlt: 'Model wearing a soft organic cotton t-shirt',
         colors: [
             {
@@ -183,7 +183,7 @@ export const products: Product[] = [
         name: 'Hemp Denim Jeans',
         description: 'Durable and eco-friendly hemp blend denim jeans',
         price: '$110',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/hemp-denim-jeans.jpeg',
         imageAlt: 'Person wearing comfortable hemp denim jeans',
         colors: [
             {
@@ -205,7 +205,7 @@ export const products: Product[] = [
         name: 'Alpaca Wool Cardigan',
         description: 'Luxuriously soft and warm alpaca wool cardigan',
         price: '$135',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/alpaca-wool-cardigan.jpeg',
         imageAlt: 'Model wearing a cozy alpaca wool cardigan',
         colors: [
             {
@@ -232,7 +232,7 @@ export const products: Product[] = [
         name: 'Organic Cotton Sweatpants',
         description: 'Comfortable, ethically-made organic cotton sweatpants',
         price: '$60',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/organic-cotton-sweatpants.jpeg',
         imageAlt: 'Person wearing cozy organic cotton sweatpants',
         colors: [
             {
@@ -259,7 +259,7 @@ export const products: Product[] = [
         name: 'Tencel Wrap Dress',
         description: 'Elegant and eco-friendly Tencel wrap dress',
         price: '$95',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/tencel-wrap-dress.jpeg',
         imageAlt: 'Model wearing a flowing Tencel wrap dress',
         colors: [
             {
@@ -286,7 +286,7 @@ export const products: Product[] = [
         name: 'Recycled Down Vest',
         description: 'Warm vest made with ethically-sourced recycled down',
         price: '$85',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/recycled-down-vest.jpeg',
         imageAlt: 'Person wearing a puffy recycled down vest',
         colors: [
             {
@@ -313,7 +313,7 @@ export const products: Product[] = [
         name: 'Organic Cotton Pajama Set',
         description: 'Soft and comfortable organic cotton pajama set',
         price: '$70',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/organic-cotton-pajama-set.jpeg',
         imageAlt: 'Model wearing a cozy organic cotton pajama set',
         colors: [
             {
@@ -340,7 +340,7 @@ export const products: Product[] = [
         name: 'Merino Wool Base Layer',
         description: 'Thermal base layer made from ethically-sourced merino wool',
         price: '$65',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/merino-wool-base-layer.jpeg',
         imageAlt: 'Person wearing a form-fitting merino wool base layer',
         colors: [
             {
@@ -362,7 +362,7 @@ export const products: Product[] = [
         name: 'Organic Linen Shorts',
         description: 'Breathable and comfortable organic linen shorts',
         price: '$55',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/organic-linen-shorts.jpeg',
         imageAlt: 'Model wearing relaxed organic linen shorts',
         colors: [
             {
@@ -389,7 +389,7 @@ export const products: Product[] = [
         name: 'Recycled Polyester Raincoat',
         description: 'Waterproof raincoat made from recycled polyester',
         price: '$110',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+        imageSrc: '/products/recycled-polyester-raincoat.jpeg',
         imageAlt: 'Person wearing a sleek recycled polyester raincoat',
         colors: [
             {
@@ -418,7 +418,7 @@ export const products: Product[] = [
         name: 'Organic Cotton Beanie',
         description: 'Soft and warm organic cotton beanie',
         price: '$25',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+        imageSrc: '/products/organic-cotton-beanie.jpeg',
         imageAlt: 'Person wearing a cozy organic cotton beanie',
         colors: [
             {
@@ -445,7 +445,7 @@ export const products: Product[] = [
         name: 'Recycled Wool Scarf',
         description: 'Warm and eco-friendly scarf made from recycled wool',
         price: '$45',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+        imageSrc: '/products/recycled-wool-scarf.jpeg',
         imageAlt: 'Model wearing a cozy recycled wool scarf',
         colors: [
             {
@@ -472,7 +472,7 @@ export const products: Product[] = [
         name: 'Organic Cotton Tote Bag',
         description: 'Durable and eco-friendly organic cotton tote bag',
         price: '$30',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+        imageSrc: '/products/organic-cotton-tote-bag.jpeg',
         imageAlt: 'Organic cotton tote bag with Cozy Threads logo',
         colors: [
             {
@@ -494,7 +494,7 @@ export const products: Product[] = [
         name: 'Bamboo Fiber Socks',
         description: 'Soft and breathable socks made from bamboo fiber',
         price: '$15',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+        imageSrc: '/products/bamboo-fiber-socks.jpeg',
         imageAlt: 'Pack of bamboo fiber socks in various colors',
         colors: [
             {
@@ -511,7 +511,7 @@ export const products: Product[] = [
         name: 'Upcycled Leather Wallet',
         description: 'Stylish wallet made from upcycled leather',
         price: '$55',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+        imageSrc: '/products/upcycled-leather-wallet.jpeg',
         imageAlt: 'Upcycled leather wallet with multiple card slots',
         colors: [
             {

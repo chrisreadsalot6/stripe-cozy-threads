@@ -6,6 +6,7 @@ interface AppProvidersProps {
     children: ReactNode;
 }
 
+// Combine all providers here to use as app context
 export function AppProviders({children}: AppProvidersProps) {
     return (
         <ShoppingCartProvider>
