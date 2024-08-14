@@ -5,8 +5,7 @@ import {useShoppingCart} from './ShoppingCartContext';
 
 // Define the structure of the checkout context
 interface CheckoutContextType {
-    options: {fetchClientSecret: () => Promise<string>} | null;
-    setOptions: (options: {fetchClientSecret: () => Promise<string>}) => void;
+    fetchClientSecret: () => Promise<string>;
 }
 
 // Initialize the CheckoutContext with undefined to allow runtime checks
@@ -14,11 +13,6 @@ const CheckoutContext = createContext<CheckoutContextType | undefined>(undefined
 
 // CheckoutProvider: Manages and provides checkout state to its children
 export function CheckoutProvider({children}: {children: ReactNode}) {
-    // State to store checkout options
-    const [options, setOptions] = useState<{
-        fetchClientSecret: () => Promise<string>;
-    } | null>(null);
-
     // Fetch the client secret from server
     // Creates a checkout session with these items
     const {cartItems} = useShoppingCart();
@@ -44,15 +38,9 @@ export function CheckoutProvider({children}: {children: ReactNode}) {
         }
     }, [cartItems]);
 
-    // Have latest version of fetchClientSecret by updating options whenever fetchClientSecret changes
-    useEffect(() => {
-        setOptions({fetchClientSecret});
-    }, [fetchClientSecret]);
-
     // Construct context to children components
     const contextValue = {
-        options,
-        setOptions,
+        fetchClientSecret,
     };
     return <CheckoutContext.Provider value={contextValue}>{children}</CheckoutContext.Provider>;
 }

@@ -12,11 +12,11 @@ if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 export default function Checkout() {
-    const {options} = useCheckout();
+    const {fetchClientSecret} = useCheckout();
     const {cartItems} = useShoppingCart();
 
     // Show loading animation
-    if (!options) {
+    if (!fetchClientSecret) {
         return (
             <div className='flex items-center justify-center min-h-screen'>
                 <div className='text-center'>
@@ -46,6 +46,7 @@ export default function Checkout() {
     }
 
     // Show checkout page if cart not empty
+    const options = {fetchClientSecret};
     return (
         <div id='checkout' className='container mx-auto px-4 py-8 flex flex-col min-h-screen'>
             <div className='flex-grow w-full mx-auto'>
