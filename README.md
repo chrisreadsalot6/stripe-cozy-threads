@@ -1,5 +1,7 @@
 # Cozy Threads
 
+![Landing Page](./landing-page.png)
+
 ## Welcome Description
 
 Cozy threads is a direct-to-consumer ecommerce brand selling high-quality, ethically sourced apparel and accessories.
@@ -13,6 +15,7 @@ Cozy threads is a direct-to-consumer ecommerce brand selling high-quality, ethic
 -   A product catalogue
 -   A shopping cart
 -   A checkout integrated with Stripe, with order confirmation and summary page
+-   Responsive design
 
 ## Technologies Used
 
